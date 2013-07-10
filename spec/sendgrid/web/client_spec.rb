@@ -1,11 +1,11 @@
 require 'spec_helper'
 
-describe Sendgrid::Web do
+describe Sendgrid::Web::Client do
   describe '.configure' do
-    subject { Sendgrid::Web.config }
+    subject { Sendgrid::Web::Client.config }
 
     before do
-      Sendgrid::Web.configure do |config|
+      Sendgrid::Web::Client.configure do |config|
         config.username = 'foo'
         config.password = 'bar'
       end

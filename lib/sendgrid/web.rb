@@ -1,14 +1,8 @@
 require "sendgrid/web/version"
 
 module Sendgrid
-  class Web
+  module Web
     autoload :Configurator, 'sendgrid/web/configurator'
-
-    cattr_reader :config
-
-    def self.configure(&block)
-      @@config = Configurator.new(block)
-    end
-
+    autoload :Client, 'sendgrid/web/client'
   end
 end
