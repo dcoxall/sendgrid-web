@@ -1,10 +1,11 @@
 # Sendgrid::Web
 
-Developed as a means to communicate effectively with the Sendgrid Web API
+Developed as a means to communicate effectively with the [Sendgrid Web API]
 whilst utilising new Ruby 2.0.0 features and using awesome tools such as
 [typhoeus] to make a fast - yet solid - ruby api client.
 
-[typhoeus]: https://github.com/pauldix/typhoeus
+[typhoeus]: https://github.com/typhoeus/typhoeus
+[Sendgrid Web API]: http://sendgrid.com/docs/API_Reference/Web_API/
 
 ## Installation
 
