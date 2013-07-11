@@ -8,9 +8,9 @@ Gem::Specification.new do |spec|
   spec.version       = Sendgrid::Web::VERSION
   spec.authors       = ["Darren Coxall"]
   spec.email         = ["darren@darrencoxall.com"]
-  spec.description   = %q{TODO: Write a gem description}
-  spec.summary       = %q{TODO: Write a gem summary}
-  spec.homepage      = ""
+  spec.description   = 'A ruby 2 optimised API client used to communicate with the Sendgrid Web API.'
+  spec.summary       = 'Interact with the Sendgrid Web API'
+  spec.homepage      = "https://github.com/FreakyDazio/sendgrid-web"
   spec.license       = "MIT"
 
   spec.files         = `git ls-files`.split($/)
