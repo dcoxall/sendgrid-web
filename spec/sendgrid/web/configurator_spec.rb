@@ -14,7 +14,7 @@ describe Sendgrid::Web::Configurator do
   end
 
   it 'sets a default root_url for sendgrid' do
-    subject.root_url.should eql('https://sendgrid.com/api')
+    subject.root_url.should eql('https://sendgrid.com/api/')
   end
 
   it 'can overwrite the api root_url' do
