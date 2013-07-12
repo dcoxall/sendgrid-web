@@ -9,42 +9,29 @@ describe Sendgrid::Web::Blocks do
   end
 
   describe '#get' do
-    let(:test_connection) do
-      Faraday::Adapter::Test::Stubs.new do |stub|
-        stub.post('blocks.get.json') { [200, {}, 'sent blocks.get'] }
+    it_behaves_like('a sendgrid response', '/api/blocks.get.json') do
+      let(:action) { subject.get }
+      let(:response) do
+        '[
+          {
+            "status": "4.0.0",
+            "created": "2012-09-02 00:12:12",
+            "reason": "550 Access denied...04d52d35b93501d500a9bca895ddad5cddd1a9f8486c89ace8c5e959398198cd49cd58288c9d11313975284d852811... (throttled)",
+            "email": "example@juno.com"
+          }
+        ]'
       end
-    end
-
-    before do
-      subject.stub(:connection).and_return(test_connection)
-    end
-
-    it 'makes a json request to /blocks.get.json' do
-      test_connection.should_receive(:post).
-        with('blocks.get.json',
-             hash_including(api_user: 'foo', api_key: 'bar')).
-        and_call_original
-      subject.get
     end
   end
 
   describe '#delete' do
-    let(:test_connection) do
-      Faraday::Adapter::Test::Stubs.new do |stub|
-        stub.post('blocks.delete.json') { [200, {}, 'sent blocks.delete'] }
+    it_behaves_like('a sendgrid response', '/api/blocks.delete.json') do
+      let(:action) { subject.delete(email: 'foobar@example.com') }
+      let(:response) do
+        '{
+          "message": "success"
+        }'
       end
-    end
-
-    before do
-      subject.stub(:connection).and_return(test_connection)
-    end
-
-    it 'makes a json request to /blocks.delete.json' do
-      test_connection.should_receive(:post).
-        with('blocks.delete.json',
-             hash_including(api_user: 'foo', api_key: 'bar', email: 'foobar@example.com')).
-        and_call_original
-      subject.delete(email: 'foobar@example.com')
     end
   end
 end

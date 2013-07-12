@@ -1,10 +1,15 @@
 class Sendgrid::Web::Client
+
   def self.configure(&block)
     @@config = Sendgrid::Web::Configurator.new(&block)
   end
 
   def self.config
-    @@config
+    @@config ||= Sendgrid::Web::Configurator.new
+  end
+
+  def self.base_uri
+    config.root_url
   end
 
   def config
@@ -13,15 +18,17 @@ class Sendgrid::Web::Client
 
   private
 
+  class API
+    include ::HTTParty
+    base_uri Sendgrid::Web::Client.config.root_url
+  end
+
   def config=(configurator)
     @@config = configurator
   end
 
   def connection
-    @connection ||= Faraday.new(:url => config.root_url) do |faraday|
-      faraday.request :url_encoded
-      faraday.adapter :typhoeus
-    end
+    @connection = API
   end
 
   def default_params
@@ -30,4 +37,9 @@ class Sendgrid::Web::Client
       api_key:  config.password
     }
   end
+
+  def craft_response(response)
+    Sendgrid::Web::Response.new(response.code, response.body)
+  end
+
 end
