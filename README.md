@@ -14,11 +14,11 @@ Add this line to your application's Gemfile:
 
 And then execute:
 
-    $ bundle
+    bundle
 
 Or install it yourself as:
 
-    $ gem install sendgrid-web
+    gem install sendgrid-web
 
 ## Usage
 
@@ -41,9 +41,10 @@ want to access:
 1. Fork it
 2. Create your feature branch (`git checkout -b my-new-feature`)
 3. Provide working specs for new features
-4. Commit your changes (`git commit -am 'Add some feature'`)
-5. Push to the branch (`git push origin my-new-feature`)
-6. Create new Pull Request
+4. Document changes (if changing public interface)
+5. Commit your changes (`git commit -am 'Add some feature'`)
+6. Push to the branch (`git push origin my-new-feature`)
+7. Create new Pull Request
 
 ## License
 
