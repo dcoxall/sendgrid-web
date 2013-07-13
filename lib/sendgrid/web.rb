@@ -1,9 +1,9 @@
 require 'oj'
 require 'httparty'
-require 'sendgrid/web/version'
 
 module Sendgrid
   module Web
+    autoload :VERSION,        'sendgrid/web/version'
     autoload :Configurator,   'sendgrid/web/configurator'
     autoload :Client,         'sendgrid/web/client'
     autoload :Blocks,         'sendgrid/web/blocks'

@@ -1,6 +1,6 @@
 shared_examples "a sendgrid response" do |path|
   let(:test_connection) { double(:connection) }
-    
+
   before do
     test_connection.stub(:post).
       with(path, anything).
@@ -9,10 +9,10 @@ shared_examples "a sendgrid response" do |path|
   end
 
   it "makes a json request to #{path}" do
+    params = double(:parameters)
+    subject.stub(:default_params) { params }
     test_connection.should_receive(:post).
-      with(path, hash_including(query: {
-        api_user: 'foo',
-        api_key: 'bar'}))
+      with(path, params)
     action
   end
 
