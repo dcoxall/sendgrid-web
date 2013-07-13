@@ -10,9 +10,9 @@ shared_examples "a sendgrid response" do |path|
 
   it "makes a json request to #{path}" do
     test_connection.should_receive(:post).
-      with(path, hash_including(
+      with(path, hash_including(query: {
         api_user: 'foo',
-        api_key: 'bar'))
+        api_key: 'bar'}))
     action
   end
 

@@ -8,12 +8,18 @@ class Sendgrid::Web::Response
     @parsed_body = ::Oj.safe_load(raw_body)
   end
 
+  # Checks if the Sengrid response contained errors.
+  #
+  # @return [bool] True if there were errors found.
   def errors?
-    !parsed_body.nil? && 
+    !parsed_body.nil? &&
     parsed_body.is_a?(Hash) &&
     parsed_body.has_key?('errors')
   end
 
+  # Fetches an array of error messages from the response.
+  #
+  # @return [Array<String>] A list of any error messages.
   def error_messages
     errors? ? parsed_body['errors'] : []
   end

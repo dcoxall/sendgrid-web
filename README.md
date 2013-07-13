@@ -1,10 +1,9 @@
 # Sendgrid::Web
 
 Developed as a means to communicate effectively with the [Sendgrid Web API]
-whilst utilising new Ruby 2.0.0 features and using awesome tools such as
-[typhoeus] to make a fast - yet solid - ruby api client.
+whilst utilising new Ruby 2.0.0 features. The aim is to become the go-to
+library for interacting with Sendgrid via their web API.
 
-[typhoeus]: https://github.com/typhoeus/typhoeus
 [Sendgrid Web API]: http://sendgrid.com/docs/API_Reference/Web_API/
 
 ## Installation
@@ -25,21 +24,17 @@ Or install it yourself as:
 
 First you will need to configure the client:
 
-```ruby
-Sendgrid::Web::Client.configure do |config|
-  config.username = 'your sendgrid username'
-  config.password = 'your sendgrid password'
-end
-```
+    Sendgrid::Web::Client.configure do |config|
+      config.username = 'your sendgrid username'
+      config.password = 'your sendgrid password'
+    end
 
 Now you can create client instances based on the api module you
 want to access:
 
-```ruby
-client = Sendgrid::Web::Bounces.new
-client.get # get list of bounces
-client.delete(email: 'foobar@example.com') # delete all bounces for foobar
-```
+    client = Sendgrid::Web::Bounces.new
+    client.get # get list of bounces
+    client.delete(email: 'foobar@example.com') # delete all bounces for foobar
 
 ## Contributing
 
