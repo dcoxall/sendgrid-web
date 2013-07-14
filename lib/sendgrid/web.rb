@@ -15,6 +15,7 @@ module Sendgrid
     autoload :ParseWebhookSettings, 'sendgrid/web/parse_webhook_settings'
     autoload :Profile,        'sendgrid/web/profile'
     autoload :SpamReports,    'sendgrid/web/spam_reports'
+    autoload :Unsubscribes,   'sendgrid/web/unsubscribes'
     autoload :Response,       'sendgrid/web/response'
   end
 end
