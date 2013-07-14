@@ -12,6 +12,7 @@ module Sendgrid
     autoload :InvalidEmails,  'sendgrid/web/invalid_emails'
     autoload :Mail,           'sendgrid/web/mail'
     autoload :Credentials,    'sendgrid/web/credentials'
+    autoload :ParseWebhookSettings, 'sendgrid/web/parse_webhook_settings'
     autoload :Response,       'sendgrid/web/response'
   end
 end
