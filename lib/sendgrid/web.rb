@@ -13,6 +13,7 @@ module Sendgrid
     autoload :Mail,           'sendgrid/web/mail'
     autoload :Credentials,    'sendgrid/web/credentials'
     autoload :ParseWebhookSettings, 'sendgrid/web/parse_webhook_settings'
+    autoload :Profile,        'sendgrid/web/profile'
     autoload :Response,       'sendgrid/web/response'
   end
 end
