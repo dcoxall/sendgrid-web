@@ -14,6 +14,7 @@ module Sendgrid
     autoload :Credentials,    'sendgrid/web/credentials'
     autoload :ParseWebhookSettings, 'sendgrid/web/parse_webhook_settings'
     autoload :Profile,        'sendgrid/web/profile'
+    autoload :SpamReports,    'sendgrid/web/spam_reports'
     autoload :Response,       'sendgrid/web/response'
   end
 end
