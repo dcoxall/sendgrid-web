@@ -16,6 +16,7 @@ module Sendgrid
     autoload :Profile,        'sendgrid/web/profile'
     autoload :SpamReports,    'sendgrid/web/spam_reports'
     autoload :Unsubscribes,   'sendgrid/web/unsubscribes'
+    autoload :Statistics,     'sendgrid/web/statistics'
     autoload :Response,       'sendgrid/web/response'
   end
 end
