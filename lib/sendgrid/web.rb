@@ -5,6 +5,7 @@ module Sendgrid
   module Web
     autoload :VERSION,        'sendgrid/web/version'
     autoload :Configurator,   'sendgrid/web/configurator'
+    autoload :ParameterParser,'sendgrid/web/parameter_parser'
     autoload :Client,         'sendgrid/web/client'
     autoload :Blocks,         'sendgrid/web/blocks'
     autoload :Bounces,        'sendgrid/web/bounces'
