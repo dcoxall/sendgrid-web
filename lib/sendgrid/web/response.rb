@@ -14,14 +14,21 @@ class Sendgrid::Web::Response
   def errors?
     !parsed_body.nil? &&
     parsed_body.is_a?(Hash) &&
-    parsed_body.has_key?('errors')
+    (parsed_body.has_key?('errors') ||
+    parsed_body.has_key?('error'))
   end
 
   # Fetches an array of error messages from the response.
   #
   # @return [Array<String>] A list of any error messages.
   def error_messages
-    errors? ? parsed_body['errors'] : []
+    if errors?
+      errors = Array(parsed_body['errors'])
+      errors << parsed_body['error']
+      errors.compact
+    else
+      []
+    end
   end
 
 end
