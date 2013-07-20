@@ -29,7 +29,7 @@ class Sendgrid::Web::Parameters < Hash
   def _cleanse(hash)
     cleansed = Sendgrid::Web::Parameters.new
     hash.each do |k, v|
-      cleansed[k] = _cleanse_value(v)
+      cleansed[k] = _cleanse_value(v) unless v.nil?
     end
     cleansed
   end
