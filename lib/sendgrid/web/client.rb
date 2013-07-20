@@ -50,14 +50,16 @@ class Sendgrid::Web::Client
   end
 
   def default_params(additions = {})
+    params = Sendgrid::Web::Parameters.new
     defaults = {
       query: {
         api_user: config.username,
         api_key:  config.password
       }
     }
-    defaults[:query].merge!(additions)
-    defaults
+    params.replace(defaults)
+    params[:query].merge!(additions)
+    params
   end
 
   def craft_response(response)
